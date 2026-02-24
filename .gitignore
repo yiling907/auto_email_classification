@@ -1,5 +1,4 @@
 /.venv/
 /.idea/
 /terraform/.terraform.lock.hcl
-/terraform/lambda/*.zip
 /terraform/.terraform/

@@ -29,7 +29,7 @@ variable "dynamodb_table_name" {
 variable "bedrock_model_id" {
   description = "Bedrock foundation model ID for email analysis"
   type        = string
-  default     = "anthropic.claude-3-sonnet-20240229-v1:0"
+  default     = "meta.llama3-70b-instruct-v1:0"
 }
 
 # Lambda runtime

@@ -210,7 +210,10 @@ resource "aws_iam_policy" "step_function_policy" {
           "dynamodb:PutItem",
           "logs:CreateLogGroup",
           "logs:CreateLogStream",
-          "logs:PutLogEvents"
+          "logs:PutLogEvents",
+          "aws-marketplace:ViewSubscriptions",
+          "aws-marketplace:Subscribe",
+          "aws-marketplace:Unsubscribe"
         ]
         Effect   = "Allow"
         Resource = "*"
@@ -220,7 +223,7 @@ resource "aws_iam_policy" "step_function_policy" {
 }
 
 resource "aws_iam_role_policy_attachment" "step_function_policy_attach" {
-  role       = aws_iam_role.step_function_exec_role.id
+  role       = aws_iam_role.step_function_exec_role.name
   policy_arn = aws_iam_policy.step_function_policy.arn
 }
 # Step Functions policy: Invoke Lambda functions
@@ -402,7 +405,7 @@ resource "aws_iam_policy" "shared_cloudwatch_logs_write_policy" {
         ],
         # Restrict to your project's log groups (least privilege!)
         Resource = [
-        "${aws_cloudwatch_log_group.step_function_logs.arn}*"
+          "${aws_cloudwatch_log_group.step_function_logs.arn}*"
         ]
       }
     ]
