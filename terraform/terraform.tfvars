@@ -1,0 +1,5 @@
+aws_region          = "us-east-1"
+project_name        = "gmail-processing"
+s3_bucket_name      = "your-unique-gmail-bucket-2026"
+dynamodb_table_name = "GmailStructuredData"
+lambda_runtime      = "python3.11"
